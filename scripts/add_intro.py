@@ -24,13 +24,14 @@ ROOT = Path(__file__).resolve().parent.parent
 VIDEOS = ROOT / "results/videos"
 FONT = "/System/Library/Fonts/STHeiti Medium.ttc"
 SECONDS = 5
-SPEED = {"05-pi-receipt": 2.5, "06-pi-chart": 2.5, "07-pi-wireframe": 2.5, "08-pi-geometry": 2.5}  # playback speed of the recording after the intro card
+SPEED = {"05-pi-receipt": 2.5, "06-pi-chart": 2.5, "07-pi-wireframe": 2.5, "08-pi-geometry": 2.5, "09-video-events": 2.5}  # playback speed of the recording after the intro card
 SEGMENTS = {
     "04-pi-photo": ("photo", "多模態：真實照片理解（士林夜市）"),
     "05-pi-receipt": ("receipt", "多模態：中文收據 OCR + 驗算找錯"),
     "06-pi-chart": ("chart", "多模態：圖表讀數與計算"),
     "07-pi-wireframe": ("wireframe", "多模態：手繪 wireframe → HTML"),
     "08-pi-geometry": ("geometry", "多模態：看圖解幾何題"),
+    "09-video-events": ("video_events", "多模態：影片理解（事件順序 + 計數）"),
     "10-video-mrt": ("video_mrt", "多模態：真實影片理解（台北捷運進站）"),  # video input: played inside the card
 }
 
