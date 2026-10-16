@@ -1,0 +1,10 @@
+tmpcode/
+assets/download/
+.DS_Store
+__pycache__/
+.venv/
+results/cu-*/*.mov
+results/cu-*/*.mp4
+results/cu-*/video_meta.json
+results/*.log
+.remember/

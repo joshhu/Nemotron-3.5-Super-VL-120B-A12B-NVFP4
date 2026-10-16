@@ -1,0 +1,255 @@
+## Prompt
+
+<file name="/Users/joshhu/workspace/Nemotron-3.5-Super-VL-120B-A12B-NVFP4/assets/wireframe.png"></file>
+Convert this hand-drawn wireframe into a single self-contained HTML file with modern CSS (no external assets). Match the layout faithfully: top nav, left sidebar, task list with checkboxes and tags, and the two cards at the bottom. Output only the HTML in one ```html code block. [image]
+
+## Answer
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskFlow</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container {
+    border: 3px solid #000;
+    border-radius: 8px;
+    background: #fff;
+    padding: 20px;
+}
+
+/* Top Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 3px solid #000;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.user-circle {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #000;
+    border-radius: 50%;
+}
+
+/* Main Content Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+}
+
+/* Left Sidebar */
+.sidebar {
+    border: 3px solid #000;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-item {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.sidebar-item:hover {
+    background: #f0f0f0;
+}
+
+/* Today's Tasks Section */
+.tasks-section {
+    border: 3px solid #000;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.tasks-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.task-item {
+    border: 3px solid #000;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-checkbox {
+    width: 25px;
+    height: 25px;
+    border: 3px solid #000;
+    border-radius: 4px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-tag {
+    border: 3px solid #000;
+    border-radius: 4px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Bottom Cards */
+.bottom-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    border: 3px solid #000;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.progress-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.bar {
+    width: 60px;
+    border: 3px solid #000;
+    border-radius: 4px;
+}
+
+.stats-item {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.stats-item.overdue {
+    color: #e74c3c;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="logo">TaskFlow</div>
+        <div class="nav-links">
+            <a href="#">Dashboard</a>
+            <a href="#">Projects</a>
+            <a href="#">Team</a>
+        </div>
+        <div class="user-circle"></div>
+    </nav>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="sidebar-item">+ New task</div>
+            <div class="sidebar-item">Inbox (4)</div>
+            <div class="sidebar-item">Today</div>
+            <div class="sidebar-item">Upcoming</div>
+            <div class="sidebar-item">Done</div>
+        </aside>
+
+        <main class="tasks-section">
+            <h2>Today's tasks</h2>
+            
+            <div class="task-item">
+                <div class="task-checkbox"></div>
+                <div class="task-content">Review PR #42</div>
+                <div class="task-tag">urgent</div>
+            </div>
+            
+            <div class="task-item">
+                <div class="task-checkbox"></div>
+                <div class="task-content">Write release notes</div>
+                <div class="task-tag">docs</div>
+            </div>
+            
+            <div class="task-item">
+                <div class="task-checkbox"></div>
+                <div class="task-content">1:1 with Mei</div>
+                <div class="task-tag">meeting</div>
+            </div>
+
+            <div class="bottom-cards">
+                <div class="card">
+                    <h3>Weekly progress</h3>
+                    <div class="progress-chart">
+                        <div class="bar" style="height: 80px;"></div>
+                        <div class="bar" style="height: 140px;"></div>
+                        <div class="bar" style="height: 100px;"></div>
+                        <div class="bar" style="height: 180px;"></div>
+                        <div class="bar" style="height: 130px;"></div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Stats</h3>
+                    <div class="stats-item">12 done</div>
+                    <div class="stats-item overdue">3 overdue</div>
+                    <div class="stats-item">87% on time</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
+```
+
+## Stats
+
+輸入 1,314 tok · 輸出 1,502 tok · 首字 1.24s · 總時間 25.4s · 生成速度 62.0 tok/s

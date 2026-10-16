@@ -1,0 +1,39 @@
+{
+  "providers": {
+    "vllm-112-nemotron": {
+      "baseUrl": "http://192.168.1.112:8000/v1",
+      "api": "openai-completions",
+      "apiKey": "vllm",
+      "compat": {
+        "supportsStore": false,
+        "supportsDeveloperRole": false,
+        "thinkingFormat": "chat-template",
+        "chatTemplateKwargs": {
+          "enable_thinking": {
+            "$var": "thinking.enabled"
+          }
+        },
+        "maxTokensField": "max_tokens"
+      },
+      "models": [
+        {
+          "id": "nemotron-3.5-super-vl",
+          "name": "Nemotron 3.5 Super VL 120B-A12B NVFP4 (vLLM @ 192.168.1.112:8000)",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 32768,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    }
+  }
+}

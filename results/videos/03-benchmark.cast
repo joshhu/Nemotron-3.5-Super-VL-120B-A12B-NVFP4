@@ -1,0 +1,11 @@
+{"version":3,"term":{"cols":130,"rows":30},"timestamp":1792128311,"command":"bash /var/folders/4z/9g413kps2l14p9j7pzv9kp8c0000gn/T/record_term.bU1FZMvx0j.sh","env":{"SHELL":"/bin/zsh"}}
+[0.005, "o", "\u001b[1;38;5;112m■ 速度測試（TTFT / prefill / decode）\u001b[0m\r\n\u001b[38;5;245mNemotron 3.5 Super VL 120B-A12B NVFP4 @ DGX Spark (vLLM) · client: pi on MacBook Air\u001b[0m\r\n\r\n\u001b[1;32m$\u001b[0m uv run scripts/bench.py --label lilicorr\r\n"]
+[2.176, "o", "warmup ...\r\n"]
+[57.448, "o", "code (en, think off)         prompt=    66 gen= 1024 TTFT=  0.35s prefill=     187 tok/s decode=  56.1 tok/s\r\n"]
+[97.038, "o", "prose (zh-TW, think off)     prompt=    81 gen=  770 TTFT=  0.40s prefill=     205 tok/s decode=  22.3 tok/s\r\n"]
+[39.622, "o", "reasoning (think on)         prompt=    98 gen=  765 TTFT=  0.40s prefill=     243 tok/s decode=  63.5 tok/s\r\n"]
+[14.144, "o", "prefill 8k ctx               prompt= 10942 gen=   54 TTFT=  3.65s prefill=    2999 tok/s decode=  57.3 tok/s\r\n"]
+[47.850, "o", "prefill 32k ctx              prompt= 43942 gen=   57 TTFT= 15.02s prefill=    2926 tok/s decode=  64.4 tok/s\r\n"]
+[28.728, "o", "image describe (think off)   prompt=   992 gen=  512 TTFT=  0.70s prefill=    1427 tok/s decode=  59.0 tok/s\r\n"]
+[0.002, "o", "\r\nsaved /Users/joshhu/workspace/Nemotron-3.5-Super-VL-120B-A12B-NVFP4/results/bench-lilicorr.json\r\n"]
+[3.096, "x", "0"]
