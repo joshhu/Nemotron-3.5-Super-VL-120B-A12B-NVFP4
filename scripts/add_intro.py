@@ -2,11 +2,11 @@
 # requires-python = ">=3.11"
 # dependencies = ["pillow>=11", "openai>=1.60"]
 # ///
-"""Prepend a 5-second "input image + prompt" card to the image-demo videos so viewers see the input first.
+"""Prepend an "input image/video + prompt" card to the image-demo videos so viewers see the input first.
 
 The untouched recordings are kept as results/videos/raw/<segment>.mp4, so this is safe to re-run.
 
-  uv run scripts/add_intro.py            # 04–08
+  uv run scripts/add_intro.py            # 04–10
   uv run scripts/add_intro.py 05-pi-receipt
 """
 
@@ -23,8 +23,8 @@ from demo_multimodal import DEMOS  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 VIDEOS = ROOT / "results/videos"
 FONT = "/System/Library/Fonts/STHeiti Medium.ttc"
-SECONDS = 5
-SPEED = {"05-pi-receipt": 2.5, "06-pi-chart": 2.5, "07-pi-wireframe": 2.5, "08-pi-geometry": 2.5, "09-video-events": 2.5}  # playback speed of the recording after the intro card
+SPEED = 2.5  # playback speed of the whole video: intro card / input video and the recording after it
+CARD_SECONDS = 5 / SPEED  # image card shown for 5 s of "real time"
 SEGMENTS = {
     "04-pi-photo": ("photo", "多模態：真實照片理解（士林夜市）"),
     "05-pi-receipt": ("receipt", "多模態：中文收據 OCR + 驗算找錯"),
@@ -55,7 +55,7 @@ def card(seg: str, size: tuple[int, int]) -> Path:
     d = ImageDraw.Draw(img)
     d.text((40, 30), f"■ {title}", font=ImageFont.truetype(FONT, 38), fill="#a6e22e")
     is_video = demo["file"].endswith(".mp4")
-    label = "輸入影片（原速播放，接著交給 Nemotron 3.5 Super VL 判讀）" if is_video else "輸入圖片（下一步交給 Nemotron 3.5 Super VL 判讀）"
+    label = f"輸入影片（{SPEED:g} 倍速播放，接著交給 Nemotron 3.5 Super VL 判讀）" if is_video else "輸入圖片（下一步交給 Nemotron 3.5 Super VL 判讀）"
     d.text((40, 84), label, font=ImageFont.truetype(FONT, 24), fill="#9e9e8f")
     pf = ImageFont.truetype(FONT, 22)
     prompt_lines = wrap("問題：" + demo["prompt"], pf, W - 80)[:4]
@@ -105,23 +105,23 @@ def main():
             shutil.copy2(VIDEOS / f"{seg}.mp4", raw)
         w, h = probe_size(raw)
         png, vbox = card(seg, (w, h))
-        sp = SPEED.get(seg, 1)
+        sp = SPEED
         if vbox:  # input video plays inside the card, then the recording follows
             x, y, pw, ph = vbox
             src = ROOT / "assets" / DEMOS[SEGMENTS[seg][0]]["file"]
             subprocess.run(["ffmpeg", "-v", "error", "-y", "-loop", "1", "-framerate", "30", "-i", str(png), "-i", str(src), "-i", str(raw),
                             "-filter_complex",
-                            f"[1:v]scale={pw}:{ph},fps=30,setsar=1[m];[0:v][m]overlay={x}:{y}:shortest=1,format=yuv420p,setsar=1[a];"
+                            f"[1:v]setpts=PTS/{sp},scale={pw}:{ph},fps=30,setsar=1[m];[0:v][m]overlay={x}:{y}:shortest=1,format=yuv420p,setsar=1[a];"
                             f"[2:v]setpts=PTS/{sp},fps=30,format=yuv420p,setsar=1[b];[a][b]concat=n=2:v=1:a=0[v]",
                             "-map", "[v]", "-c:v", "libx264", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart",
                             str(VIDEOS / f"{seg}.mp4")], check=True)
             print(f"{seg}: input video prepended, speed {sp}x")
             continue
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-loop", "1", "-framerate", "30", "-t", str(SECONDS), "-i", str(png), "-i", str(raw),
-                        "-filter_complex", f"[0:v]format=yuv420p,setsar=1[a];[1:v]setpts=PTS/{SPEED.get(seg, 1)},fps=30,format=yuv420p,setsar=1[b];[a][b]concat=n=2:v=1:a=0[v]",
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-loop", "1", "-framerate", "30", "-t", str(CARD_SECONDS), "-i", str(png), "-i", str(raw),
+                        "-filter_complex", f"[0:v]format=yuv420p,setsar=1[a];[1:v]setpts=PTS/{SPEED},fps=30,format=yuv420p,setsar=1[b];[a][b]concat=n=2:v=1:a=0[v]",
                         "-map", "[v]", "-c:v", "libx264", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart",
                         str(VIDEOS / f"{seg}.mp4")], check=True)
-        print(f"{seg}: intro added, speed {SPEED.get(seg, 1)}x")
+        print(f"{seg}: intro added, speed {SPEED}x")
 
 
 if __name__ == "__main__":

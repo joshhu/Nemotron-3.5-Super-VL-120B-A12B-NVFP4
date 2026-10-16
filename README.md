@@ -88,7 +88,7 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 
 ![wireframe 對照](results/pi-wireframe-compare.png)
 
-> 左：手繪 wireframe；右：模型產生的 HTML 實際渲染結果。04–08 影片開頭 5 秒先顯示輸入圖片與問題。
+> 左：手繪 wireframe；右：模型產生的 HTML 實際渲染結果。04–10 影片開頭先顯示輸入圖片／影片與問題（2.5 倍速）。
 
 
 | 影片 | 長度 |
@@ -96,17 +96,17 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 | [01-pi-chat.mp4](results/videos/01-pi-chat.mp4) | 0:19 |
 | [02-pi-reasoning.mp4](results/videos/02-pi-reasoning.mp4) | 2:10 |
 | [03-benchmark.mp4](results/videos/03-benchmark.mp4) | 0:24 |
-| [04-pi-photo.mp4](results/videos/04-pi-photo.mp4) | 1:11 |
-| [05-pi-receipt.mp4](results/videos/05-pi-receipt.mp4) | 0:17（2.5×） |
-| [06-pi-chart.mp4](results/videos/06-pi-chart.mp4) | 0:22（2.5×） |
-| [07-pi-wireframe.mp4](results/videos/07-pi-wireframe.mp4) | 0:17（2.5×） |
-| [08-pi-geometry.mp4](results/videos/08-pi-geometry.mp4) | 0:20（2.5×） |
-| [09-video-events.mp4](results/videos/09-video-events.mp4) | 0:26（含輸入影片，回答 2.5×） |
-| [10-video-mrt.mp4](results/videos/10-video-mrt.mp4) | 1:50（含輸入影片） |
+| [04-pi-photo.mp4](results/videos/04-pi-photo.mp4) | 0:28（2.5×） |
+| [05-pi-receipt.mp4](results/videos/05-pi-receipt.mp4) | 0:14（2.5×） |
+| [06-pi-chart.mp4](results/videos/06-pi-chart.mp4) | 0:19（2.5×） |
+| [07-pi-wireframe.mp4](results/videos/07-pi-wireframe.mp4) | 0:14（2.5×） |
+| [08-pi-geometry.mp4](results/videos/08-pi-geometry.mp4) | 0:17（2.5×） |
+| [09-video-events.mp4](results/videos/09-video-events.mp4) | 0:14（2.5×） |
+| [10-video-mrt.mp4](results/videos/10-video-mrt.mp4) | 0:44（2.5×） |
 | [11-cu-calculator.mp4](results/videos/11-cu-calculator.mp4) | 0:40 |
 | [12-cu-order-form.mp4](results/videos/12-cu-order-form.mp4) | 0:48 |
 
-09、10 開頭先原速播放輸入影片（20 秒／81 秒）再接模型回答。05～09 的模型回答部分以 2.5 倍速播放（畫面上的時間與速度數字仍為實測值）。
+04～10 開頭先顯示輸入圖片／影片與問題，再接模型回答，整支（含開頭）以 2.5 倍速播放（畫面上的時間與速度數字仍為實測值）。
 
 終端機段落以 asciinema 錄製、agg 轉檔（超過 3 秒的等待會被縮短，畫面上的時間與速度數字為實測值）。
 
