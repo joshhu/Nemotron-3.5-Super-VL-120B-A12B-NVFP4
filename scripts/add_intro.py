@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 VIDEOS = ROOT / "results/videos"
 FONT = "/System/Library/Fonts/STHeiti Medium.ttc"
 SECONDS = 5
-SPEED = {"05-pi-receipt": 2.5, "06-pi-chart": 2.5}  # playback speed of the recording after the intro card
+SPEED = {"05-pi-receipt": 2.5, "06-pi-chart": 2.5, "07-pi-wireframe": 2.5, "08-pi-geometry": 2.5}  # playback speed of the recording after the intro card
 SEGMENTS = {
     "04-pi-photo": ("photo", "多模態：真實照片理解（士林夜市）"),
     "05-pi-receipt": ("receipt", "多模態：中文收據 OCR + 驗算找錯"),
