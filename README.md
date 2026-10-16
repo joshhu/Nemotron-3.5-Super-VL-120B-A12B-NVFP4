@@ -102,11 +102,11 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 | [07-pi-wireframe.mp4](results/videos/07-pi-wireframe.mp4) | 0:17（2.5×） |
 | [08-pi-geometry.mp4](results/videos/08-pi-geometry.mp4) | 0:20（2.5×） |
 | [09-video-events.mp4](results/videos/09-video-events.mp4) | 0:06（2.5×） |
-| [10-video-mrt.mp4](results/videos/10-video-mrt.mp4) | 0:29 |
+| [10-video-mrt.mp4](results/videos/10-video-mrt.mp4) | 1:50（含輸入影片） |
 | [11-cu-calculator.mp4](results/videos/11-cu-calculator.mp4) | 0:40 |
 | [12-cu-order-form.mp4](results/videos/12-cu-order-form.mp4) | 0:48 |
 
-05～08 影片在介紹卡之後、09 整支以 2.5 倍速播放（畫面上的時間與速度數字仍為實測值）。
+10 開頭先原速播放輸入的捷運影片（81 秒）再接模型回答。05～08 影片在介紹卡之後、09 整支以 2.5 倍速播放（畫面上的時間與速度數字仍為實測值）。
 
 終端機段落以 asciinema 錄製、agg 轉檔（超過 3 秒的等待會被縮短，畫面上的時間與速度數字為實測值）。
 
