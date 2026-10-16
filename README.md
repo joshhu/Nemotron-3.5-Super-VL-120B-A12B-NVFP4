@@ -77,7 +77,9 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 | 任務 | 標準答案 | 模型表現 | 紀錄 |
 |---|---|---|---|
 | macOS 計算機：只用點按計算 1234 × 5678 | 7,006,652 | ✅ 7,006,652（12 輪、107 秒；自行修正 expect 參數錯誤，分兩批點擊並回頭確認畫面） | [cu-calculator.md](results/cu-calculator.md) |
-| Chrome 網頁表單：填姓名、數量、外送並送出（禁用 JS） | A01944、運費 50、應付 315 | ⏳ 錄製中 | [cu-order_form.md](results/cu-order_form.md) |
+| Chrome 網頁表單：填姓名、數量、外送並送出（禁用 JS） | A01944、運費 50、應付 315 | ✅ A01944、運費 50、應付 315 全對（125 秒；填姓名/數量、選外送、送出、讀確認頁） | [cu-order_form.md](results/cu-order_form.md) |
+
+> 注意：`launch_browser` 只接受 http(s) URL，表單由本機 `http.server`（port 18765）提供。
 
 `scripts/computer_use_demo.py` 會同時錄下所有螢幕，跑完後用 CoreGraphics 找出 app 視窗位置裁切，
 並由 `scripts/make_cu_video.py` 合成「左邊畫面、右邊 Agent 動作紀錄」的影片（模型思考時快轉 6×，操作時 1×）。
@@ -102,6 +104,7 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 | [09-video-events.mp4](results/videos/09-video-events.mp4) | 0:16 |
 | [10-video-mrt.mp4](results/videos/10-video-mrt.mp4) | 0:29 |
 | [11-cu-calculator.mp4](results/videos/11-cu-calculator.mp4) | 0:40 |
+| [12-cu-order-form.mp4](results/videos/12-cu-order-form.mp4) | 0:48 |
 
 終端機段落以 asciinema 錄製、agg 轉檔（超過 3 秒的等待會被縮短，畫面上的時間與速度數字為實測值）。
 
