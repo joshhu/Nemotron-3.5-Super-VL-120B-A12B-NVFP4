@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 VIDEOS = ROOT / "results/videos"
 FONT = "/System/Library/Fonts/STHeiti Medium.ttc"
 SECONDS = 5
+SPEED = {"05-pi-receipt": 2.5}  # playback speed of the recording after the intro card
 SEGMENTS = {
     "04-pi-photo": ("photo", "多模態：真實照片理解（士林夜市）"),
     "05-pi-receipt": ("receipt", "多模態：中文收據 OCR + 驗算找錯"),
@@ -83,10 +84,10 @@ def main():
                                        capture_output=True, text=True).stdout.strip().split(","))
         png = card(seg, (w, h))
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-loop", "1", "-framerate", "30", "-t", str(SECONDS), "-i", str(png), "-i", str(raw),
-                        "-filter_complex", "[0:v]format=yuv420p,setsar=1[a];[1:v]format=yuv420p,setsar=1[b];[a][b]concat=n=2:v=1:a=0[v]",
+                        "-filter_complex", f"[0:v]format=yuv420p,setsar=1[a];[1:v]setpts=PTS/{SPEED.get(seg, 1)},fps=30,format=yuv420p,setsar=1[b];[a][b]concat=n=2:v=1:a=0[v]",
                         "-map", "[v]", "-c:v", "libx264", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart",
                         str(VIDEOS / f"{seg}.mp4")], check=True)
-        print(f"{seg}: intro added")
+        print(f"{seg}: intro added, speed {SPEED.get(seg, 1)}x")
 
 
 if __name__ == "__main__":
