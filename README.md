@@ -86,7 +86,7 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 
 ![wireframe 對照](results/pi-wireframe-compare.png)
 
-> 左：手繪 wireframe；右：模型產生的 HTML 實際渲染結果。
+> 左：手繪 wireframe；右：模型產生的 HTML 實際渲染結果。04–08 影片開頭 5 秒先顯示輸入圖片與問題。
 
 
 | 影片 | 長度 |
@@ -94,11 +94,11 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 | [01-pi-chat.mp4](results/videos/01-pi-chat.mp4) | 0:19 |
 | [02-pi-reasoning.mp4](results/videos/02-pi-reasoning.mp4) | 2:10 |
 | [03-benchmark.mp4](results/videos/03-benchmark.mp4) | 0:24 |
-| [04-pi-photo.mp4](results/videos/04-pi-photo.mp4) | 1:06 |
-| [05-pi-receipt.mp4](results/videos/05-pi-receipt.mp4) | 0:31 |
-| [06-pi-chart.mp4](results/videos/06-pi-chart.mp4) | 0:44 |
-| [07-pi-wireframe.mp4](results/videos/07-pi-wireframe.mp4) | 0:30 |
-| [08-pi-geometry.mp4](results/videos/08-pi-geometry.mp4) | 0:39 |
+| [04-pi-photo.mp4](results/videos/04-pi-photo.mp4) | 1:11 |
+| [05-pi-receipt.mp4](results/videos/05-pi-receipt.mp4) | 0:36 |
+| [06-pi-chart.mp4](results/videos/06-pi-chart.mp4) | 0:49 |
+| [07-pi-wireframe.mp4](results/videos/07-pi-wireframe.mp4) | 0:35 |
+| [08-pi-geometry.mp4](results/videos/08-pi-geometry.mp4) | 0:44 |
 | [09-video-events.mp4](results/videos/09-video-events.mp4) | 0:16 |
 | [10-video-mrt.mp4](results/videos/10-video-mrt.mp4) | 0:29 |
 | [11-cu-calculator.mp4](results/videos/11-cu-calculator.mp4) | 0:40 |

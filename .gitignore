@@ -8,3 +8,4 @@ results/cu-*/*.mp4
 results/cu-*/video_meta.json
 results/*.log
 .remember/
+results/videos/raw/

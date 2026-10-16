@@ -29,7 +29,9 @@ ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
 MODEL = os.environ.get("MODEL", "vllm-112-nemotron/nemotron-3.5-super-vl")
 UI_TOOLS = "find_roots,observe_ui,search_ui,expand_ui,inspect_ui,act_ui,read_text,wait_for"
-FORM_URL = f"file://{ROOT}/assets/cu_order_form.html"
+# launch_browser only accepts http(s) URLs, so the form is served from assets/ by a local http.server
+FORM_PORT = 18765
+FORM_URL = f"http://127.0.0.1:{FORM_PORT}/cu_order_form.html"
 
 DEMOS = {
     "calculator": {
@@ -47,7 +49,7 @@ DEMOS = {
     },
     "order_form": {
         "tools": UI_TOOLS + ",launch_browser,navigate_browser",
-        "setup": lambda: None,
+        "setup": lambda: serve_assets(),
         # the managed Chrome started by pi-computer-use carries --remote-debugging-port
         "pid": lambda: pgrep(["-f", "Google Chrome.app/Contents/MacOS/Google Chrome .*--remote-debugging-port"]),
         "prompt": (
@@ -60,6 +62,13 @@ DEMOS = {
         "expect": "訂單編號 A01944、運費 NT$50、應付 NT$315",
     },
 }
+
+
+def serve_assets():
+    if subprocess.run(["curl", "-sf", "-o", "/dev/null", FORM_URL]).returncode != 0:
+        subprocess.Popen(["python3", "-m", "http.server", str(FORM_PORT), "--bind", "127.0.0.1", "--directory", str(ROOT / "assets")],
+                         stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+        time.sleep(1)
 
 
 def pgrep(args: list[str]) -> int | None:
