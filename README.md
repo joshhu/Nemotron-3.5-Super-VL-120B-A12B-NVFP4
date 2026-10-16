@@ -98,7 +98,7 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 | [03-benchmark.mp4](results/videos/03-benchmark.mp4) | 0:24 |
 | [04-pi-photo.mp4](results/videos/04-pi-photo.mp4) | 1:11 |
 | [05-pi-receipt.mp4](results/videos/05-pi-receipt.mp4) | 0:17（2.5×） |
-| [06-pi-chart.mp4](results/videos/06-pi-chart.mp4) | 0:49 |
+| [06-pi-chart.mp4](results/videos/06-pi-chart.mp4) | 0:22（2.5×） |
 | [07-pi-wireframe.mp4](results/videos/07-pi-wireframe.mp4) | 0:35 |
 | [08-pi-geometry.mp4](results/videos/08-pi-geometry.mp4) | 0:44 |
 | [09-video-events.mp4](results/videos/09-video-events.mp4) | 0:16 |
@@ -106,7 +106,7 @@ pi 的 `--thinking off` 會對應到模型的 `enable_thinking=false`；`input: 
 | [11-cu-calculator.mp4](results/videos/11-cu-calculator.mp4) | 0:40 |
 | [12-cu-order-form.mp4](results/videos/12-cu-order-form.mp4) | 0:48 |
 
-05 收據影片在介紹卡之後以 2.5 倍速播放（畫面上的時間與速度數字仍為實測值）。
+05 收據、06 圖表影片在介紹卡之後以 2.5 倍速播放（畫面上的時間與速度數字仍為實測值）。
 
 終端機段落以 asciinema 錄製、agg 轉檔（超過 3 秒的等待會被縮短，畫面上的時間與速度數字為實測值）。
 
